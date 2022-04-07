@@ -25,6 +25,7 @@ import molecule, { MoleculeProvider } from '@dtinsight/molecule';
 import Workbench from './workbench';
 import API from '@/api/operation';
 import Task from '@/pages/operation/task';
+import StreamTask from '@/pages/operation/schedule';
 import Schedule from '@/pages/operation/schedule';
 import Patch from '@/pages/operation/patch';
 import Layout from '@/layout';
@@ -115,6 +116,7 @@ export default function HomePage() {
 	const openDrawer = (drawerId: string) => {
 		switch (drawerId) {
 			case DRAWER_MENU_ENUM.TASK:
+			case DRAWER_MENU_ENUM.STREAM_TASK:
 			case DRAWER_MENU_ENUM.SCHEDULE:
 			case DRAWER_MENU_ENUM.PATCH:
 				updateDrawer({
@@ -132,6 +134,8 @@ export default function HomePage() {
 							switch (drawerId) {
 								case DRAWER_MENU_ENUM.TASK:
 									return <Task />;
+								case DRAWER_MENU_ENUM.STREAM_TASK:
+									return <StreamTask />;
 								case DRAWER_MENU_ENUM.SCHEDULE:
 									return <Schedule />;
 								case DRAWER_MENU_ENUM.PATCH:
